@@ -3,7 +3,12 @@
 
 gravitational_constant = 6.67408E-11
 """Гравитационная постоянная Ньютона G"""
+light_speed = 2.998E+8
 
+def radius_of_interaction(obj, body):
+    Rs = (obj.m * gravitational_constant) / (light_speed ** 2)
+    R = ((body.x - obj.x)**2 + (body.y - obj.y)**2)**0.5 - Rs
+    return R
 
 def calculate_force(body, space_objects):
     """Вычисляет силу, действующую на тело.
